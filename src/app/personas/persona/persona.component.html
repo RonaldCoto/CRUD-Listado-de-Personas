@@ -1,0 +1,10 @@
+<div class="item">
+  <ul>
+    <li>
+      <!--por cada item declaro la ruta para que me lleve a /personas/:id-->
+      <a [routerLink]="['/personas', indice]" [queryParams]="{modoEdicion:'1'}" 
+        >{{ persona.nombre }} {{ persona.apellido }}</a
+      >
+    </li>
+  </ul>
+</div>

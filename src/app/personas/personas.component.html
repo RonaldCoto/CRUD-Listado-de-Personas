@@ -1,0 +1,20 @@
+<div style="text-align: center;">
+  <button style="cursor: pointer" (click)="agregar()">+</button>
+</div>
+<div class="box">
+  <!-- pasando informacion al componenete hijo persona-->
+  <app-persona
+    *ngFor="let personaElemento of personas; let i = index"
+    [persona]="personaElemento"
+    [indice]="i"
+  ></app-persona>
+</div>
+
+<!--Uso este porque estoy usando chilroute-->
+<router-outlet></router-outlet>
+
+
+<!--Este lo usaba cuando no manejaba rutas hijas o childroute-->
+<!-- <div class="box">
+  <app-formulario></app-formulario>
+</div> -->

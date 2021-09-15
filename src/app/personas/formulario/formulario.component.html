@@ -1,4 +1,5 @@
-<!-- <link
+<!--
+<link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -19,15 +20,15 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous"
 ></script>-->
-<div *ngIf="!isAutenticado()" class="box centrado">
-  <a routerLink="/login">Login</a>
-</div>
-<div *ngIf="isAutenticado()" class="box centrado">
-  <a style="cursor: pointer" (click)="salir()">Salir</a>
-</div>
+<div class="box">
+  <form #f="ngForm" (ngSubmit)="f.form.valid && onGuardarPersona()" >
+    <div class="item">
+      <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="nombreInput" required/>
 
-<div class="box" id="heading">
-  <h1>Listado de personas</h1>
-</div>
+      <input type="text" name="apellido" placeholder="Apellido" [(ngModel)]="apellidoInput" required/>
 
-<router-outlet></router-outlet>
+      <button type="submit">+</button>
+      <button *ngIf="index != null" type="submit" style="cursor: pointer;" class="buttonRed" (click)="eliminarPersona()">-</button>
+    </div>
+  </form>
+</div>
